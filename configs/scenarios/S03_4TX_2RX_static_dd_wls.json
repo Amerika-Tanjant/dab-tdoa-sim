@@ -1,0 +1,82 @@
+{
+  "id": "S03_4TX_2RX_static_dd_wls",
+  "scenario_type": "four_tx_two_rx_static_dd_wls",
+  "description": "4 TX + (RefRX,UAVRX) static; double-difference eliminates constant inter-RX offset; WLS position solver.",
+  "tx": {
+    "use_tx_indices": [
+      1,
+      2,
+      3,
+      4
+    ]
+  },
+  "ref": {
+    "ref_type": "static_ring",
+    "distances_m": [
+      500,
+      1500,
+      2500
+    ],
+    "angles_deg": [
+      0,
+      120,
+      240
+    ],
+    "altitudes_m": [
+      10
+    ]
+  },
+  "uav": {
+    "uav_type": "static_ring",
+    "distances_m": [
+      200,
+      800,
+      1500,
+      2500,
+      3000
+    ],
+    "angles_deg": [
+      60,
+      180,
+      300
+    ],
+    "altitudes_m": [
+      30,
+      50,
+      100,
+      200,
+      300
+    ]
+  },
+  "sweeps": {
+    "seeds": [
+      1,
+      2
+    ],
+    "rx_offset_diff_s": [
+      0,
+      1e-07,
+      1e-06,
+      5e-06
+    ],
+    "sigma_toa_s": [
+      5e-09,
+      2e-08
+    ],
+    "p_nlos": [
+      0.0,
+      0.02
+    ],
+    "nlos_bias_mean_s": [
+      0.0,
+      5e-09
+    ],
+    "nlos_bias_std_s": [
+      0.0,
+      3e-09
+    ],
+    "quantize_to_samples": [
+      true
+    ]
+  }
+}

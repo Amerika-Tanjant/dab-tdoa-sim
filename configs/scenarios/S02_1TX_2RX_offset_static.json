@@ -1,0 +1,70 @@
+{
+  "id": "S02_1TX_2RX_offset_static",
+  "scenario_type": "one_tx_two_rx_static_offset",
+  "description": "Single TX + (RefRX,UAVRX) static; receiver-centric \u0394t includes inter-RX clock offset; sweep distances and offsets.",
+  "tx": {
+    "use_tx_indices": [
+      1
+    ]
+  },
+  "ref": {
+    "ref_type": "static_ring",
+    "distances_m": [
+      500,
+      1500,
+      2500
+    ],
+    "angles_deg": [
+      0,
+      120,
+      240
+    ],
+    "altitudes_m": [
+      10
+    ]
+  },
+  "uav": {
+    "uav_type": "static_ring",
+    "distances_m": [
+      100,
+      500,
+      1500,
+      2500,
+      3000
+    ],
+    "angles_deg": [
+      60,
+      180,
+      300
+    ],
+    "altitudes_m": [
+      30,
+      50,
+      100,
+      200,
+      300
+    ]
+  },
+  "sweeps": {
+    "seeds": [
+      1,
+      2,
+      3
+    ],
+    "rx_offset_diff_s": [
+      0,
+      1e-07,
+      5e-07,
+      1e-06,
+      5e-06
+    ],
+    "sigma_toa_s": [
+      1e-09,
+      5e-09,
+      2e-08
+    ],
+    "quantize_to_samples": [
+      true
+    ]
+  }
+}

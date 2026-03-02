@@ -1,0 +1,184 @@
+{
+  "timestamp": "2026-03-02T17:35:16Z",
+  "scenario_id": "S04_4TX_2RX_dynamic_linear_altitude",
+  "run_id": "b3c02682",
+  "seed": 2,
+  "master": {
+    "project": {
+      "name": "DAB SoOP TDOA Simulation + Dataset Generator",
+      "version": "0.1.0",
+      "timezone": "Europe/Istanbul"
+    },
+    "geo": {
+      "roi_center_llh": [
+        40.782686,
+        29.461213,
+        0
+      ],
+      "roi_radius_m": 5000
+    },
+    "phy": {
+      "c_mps": 2.99792458E+8,
+      "fs_hz": 2.048E+6,
+      "frame_period_s": 0.096
+    },
+    "rf": {
+      "usrp_bw_hz": 5.6E+7,
+      "fc_list_hz": [
+        2.06E+8,
+        2.14E+8,
+        2.22E+8,
+        2.3E+8
+      ]
+    },
+    "tx_layout_default": {
+      "coord_type": "ENU",
+      "tx_alt_m": 10,
+      "tx_enu_m": [
+        [
+          900,
+          800
+        ],
+        [
+          900,
+          -800
+        ],
+        [
+          -900,
+          800
+        ],
+        [
+          -900,
+          -800
+        ]
+      ]
+    },
+    "impairments_default": {
+      "quantize_to_samples": true,
+      "sigma_toa_s": 5E-9,
+      "p_nlos": 0.02,
+      "nlos_bias_mean_s": 5E-9,
+      "nlos_bias_std_s": 3E-9,
+      "sigma_clock_offset_s": 0,
+      "rx_offset_diff_s": 0
+    },
+    "io": {
+      "output_root": "outputs/dataset",
+      "write_hdf5": true,
+      "write_mat": false
+    }
+  },
+  "scenario": {
+    "id": "S04_4TX_2RX_dynamic_linear_altitude",
+    "scenario_type": "four_tx_two_rx_dynamic_linear",
+    "description": "4 TX + RefRX static + UAVRX dynamic linear trajectory; sweeps distance, speed, altitude, offset; outputs time-series + WLS per epoch.",
+    "tx": {
+      "use_tx_indices": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "ref": {
+      "ref_type": "static_ring",
+      "distances_m": [
+        500,
+        1500,
+        2500
+      ],
+      "angles_deg": [
+        0,
+        120,
+        240
+      ],
+      "altitudes_m": 10
+    },
+    "uav_traj": {
+      "traj_type": "linear",
+      "start_distances_m": [
+        500,
+        1500,
+        2500
+      ],
+      "start_angles_deg": [
+        30,
+        150,
+        270
+      ],
+      "end_distances_m": [
+        800,
+        1800,
+        3000
+      ],
+      "end_angles_deg": [
+        90,
+        210,
+        330
+      ],
+      "speeds_mps": [
+        5,
+        10,
+        20
+      ],
+      "altitudes_m": [
+        30,
+        50,
+        100,
+        200,
+        300
+      ],
+      "duration_s": "auto",
+      "dt_s": "frame_period"
+    },
+    "sweeps": {
+      "seeds": [
+        1,
+        2
+      ],
+      "rx_offset_diff_s": [
+        0,
+        1E-7,
+        1E-6,
+        5E-6
+      ],
+      "sigma_toa_s": [
+        5E-9,
+        2E-8
+      ],
+      "p_nlos": [
+        0,
+        0.02
+      ],
+      "nlos_bias_mean_s": [
+        0,
+        5E-9
+      ],
+      "nlos_bias_std_s": [
+        0,
+        3E-9
+      ],
+      "quantize_to_samples": true
+    }
+  },
+  "run_params": {
+    "seeds": 2,
+    "rx_offset_diff_s": 1E-7,
+    "sigma_toa_s": 5E-9,
+    "p_nlos": 0,
+    "nlos_bias_mean_s": 0,
+    "nlos_bias_std_s": 0,
+    "quantize_to_samples": true
+  },
+  "sim_summary": {
+    "Ntx": 4,
+    "K": 1459,
+    "rx_offset_diff_s": 1E-7,
+    "sigma_toa_s": 5E-9,
+    "p_nlos": 0,
+    "pos_err_mean_m": 40.0545236281151,
+    "pos_err_p95_m": 81.7527053660208,
+    "pos_err_max_m": 114.76989232709803,
+    "dd_dist_rms_m": 510.2137317746085
+  }
+}

@@ -1,0 +1,65 @@
+{
+  "project": {
+    "name": "DAB SoOP TDOA Simulation + Dataset Generator",
+    "version": "0.1.0",
+    "timezone": "Europe/Istanbul"
+  },
+  "geo": {
+    "roi_center_llh": [
+      40.782686,
+      29.461213,
+      0.0
+    ],
+    "roi_radius_m": 5000
+  },
+  "phy": {
+    "c_mps": 299792458.0,
+    "fs_hz": 2048000.0,
+    "frame_period_s": 0.096
+  },
+  "rf": {
+    "usrp_bw_hz": 56000000.0,
+    "fc_list_hz": [
+      206000000.0,
+      214000000.0,
+      222000000.0,
+      230000000.0
+    ]
+  },
+  "tx_layout_default": {
+    "coord_type": "ENU",
+    "tx_alt_m": 10.0,
+    "tx_enu_m": [
+      [
+        900.0,
+        800.0
+      ],
+      [
+        900.0,
+        -800.0
+      ],
+      [
+        -900.0,
+        800.0
+      ],
+      [
+        -900.0,
+        -800.0
+      ]
+    ]
+  },
+  "impairments_default": {
+    "quantize_to_samples": true,
+    "sigma_toa_s": 5e-09,
+    "p_nlos": 0.02,
+    "nlos_bias_mean_s": 5e-09,
+    "nlos_bias_std_s": 3e-09,
+    "sigma_clock_offset_s": 0.0,
+    "rx_offset_diff_s": 0.0
+  },
+  "io": {
+    "output_root": "outputs/dataset",
+    "write_hdf5": true,
+    "write_mat": false
+  }
+}

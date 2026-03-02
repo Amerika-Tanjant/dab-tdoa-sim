@@ -1,0 +1,169 @@
+{
+  "timestamp": "2026-03-02T17:34:04Z",
+  "scenario_id": "S03_4TX_2RX_static_dd_wls",
+  "run_id": "737a2f83",
+  "seed": 2,
+  "master": {
+    "project": {
+      "name": "DAB SoOP TDOA Simulation + Dataset Generator",
+      "version": "0.1.0",
+      "timezone": "Europe/Istanbul"
+    },
+    "geo": {
+      "roi_center_llh": [
+        40.782686,
+        29.461213,
+        0
+      ],
+      "roi_radius_m": 5000
+    },
+    "phy": {
+      "c_mps": 2.99792458E+8,
+      "fs_hz": 2.048E+6,
+      "frame_period_s": 0.096
+    },
+    "rf": {
+      "usrp_bw_hz": 5.6E+7,
+      "fc_list_hz": [
+        2.06E+8,
+        2.14E+8,
+        2.22E+8,
+        2.3E+8
+      ]
+    },
+    "tx_layout_default": {
+      "coord_type": "ENU",
+      "tx_alt_m": 10,
+      "tx_enu_m": [
+        [
+          900,
+          800
+        ],
+        [
+          900,
+          -800
+        ],
+        [
+          -900,
+          800
+        ],
+        [
+          -900,
+          -800
+        ]
+      ]
+    },
+    "impairments_default": {
+      "quantize_to_samples": true,
+      "sigma_toa_s": 5E-9,
+      "p_nlos": 0.02,
+      "nlos_bias_mean_s": 5E-9,
+      "nlos_bias_std_s": 3E-9,
+      "sigma_clock_offset_s": 0,
+      "rx_offset_diff_s": 0
+    },
+    "io": {
+      "output_root": "outputs/dataset",
+      "write_hdf5": true,
+      "write_mat": false
+    }
+  },
+  "scenario": {
+    "id": "S03_4TX_2RX_static_dd_wls",
+    "scenario_type": "four_tx_two_rx_static_dd_wls",
+    "description": "4 TX + (RefRX,UAVRX) static; double-difference eliminates constant inter-RX offset; WLS position solver.",
+    "tx": {
+      "use_tx_indices": [
+        1,
+        2,
+        3,
+        4
+      ]
+    },
+    "ref": {
+      "ref_type": "static_ring",
+      "distances_m": [
+        500,
+        1500,
+        2500
+      ],
+      "angles_deg": [
+        0,
+        120,
+        240
+      ],
+      "altitudes_m": 10
+    },
+    "uav": {
+      "uav_type": "static_ring",
+      "distances_m": [
+        200,
+        800,
+        1500,
+        2500,
+        3000
+      ],
+      "angles_deg": [
+        60,
+        180,
+        300
+      ],
+      "altitudes_m": [
+        30,
+        50,
+        100,
+        200,
+        300
+      ]
+    },
+    "sweeps": {
+      "seeds": [
+        1,
+        2
+      ],
+      "rx_offset_diff_s": [
+        0,
+        1E-7,
+        1E-6,
+        5E-6
+      ],
+      "sigma_toa_s": [
+        5E-9,
+        2E-8
+      ],
+      "p_nlos": [
+        0,
+        0.02
+      ],
+      "nlos_bias_mean_s": [
+        0,
+        5E-9
+      ],
+      "nlos_bias_std_s": [
+        0,
+        3E-9
+      ],
+      "quantize_to_samples": true
+    }
+  },
+  "run_params": {
+    "seeds": 2,
+    "rx_offset_diff_s": 1E-7,
+    "sigma_toa_s": 5E-9,
+    "p_nlos": 0,
+    "nlos_bias_mean_s": 0,
+    "nlos_bias_std_s": 3E-9,
+    "quantize_to_samples": true
+  },
+  "sim_summary": {
+    "Ntx": 4,
+    "K": 1,
+    "rx_offset_diff_s": 1E-7,
+    "sigma_toa_s": 5E-9,
+    "p_nlos": 0,
+    "pos_err_mean_m": 47.784317136026125,
+    "pos_err_p95_m": 47.784317136026125,
+    "pos_err_max_m": 47.784317136026125,
+    "dd_dist_rms_m": 414.0337500007484
+  }
+}
